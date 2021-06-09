@@ -13,7 +13,7 @@ namespace ContasPagarReceber.WindowsForm
 
     public partial class FormContas : Form
     {
-        public IRepositorio<Transacao> repositorio;
+        public IRepositorio<Transacao> repositorio = new TransacaoRepositorio();
 
         public FormContas()
         {
