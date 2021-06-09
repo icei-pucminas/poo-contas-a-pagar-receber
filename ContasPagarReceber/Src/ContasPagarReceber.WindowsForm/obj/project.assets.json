@@ -8,19 +8,24 @@
     "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Gustavo Caldeira\\.nuget\\packages\\": {}
+    "C:\\Users\\w0nd3\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gustavo Caldeira\\source\\repos\\icei-pucminas\\poo-contas-a-pagar-receber\\ContasPagarReceber\\Src\\ContasPagarReceber.WindowsForm\\ContasPagarReceber.WindowsForm.csproj",
+      "projectUniqueName": "C:\\Users\\w0nd3\\Source\\Repos\\poo-contas-a-pagar-receber\\ContasPagarReceber\\Src\\ContasPagarReceber.WindowsForm\\ContasPagarReceber.WindowsForm.csproj",
       "projectName": "ContasPagarReceber.WindowsForm",
-      "projectPath": "C:\\Users\\Gustavo Caldeira\\source\\repos\\icei-pucminas\\poo-contas-a-pagar-receber\\ContasPagarReceber\\Src\\ContasPagarReceber.WindowsForm\\ContasPagarReceber.WindowsForm.csproj",
-      "packagesPath": "C:\\Users\\Gustavo Caldeira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gustavo Caldeira\\source\\repos\\icei-pucminas\\poo-contas-a-pagar-receber\\ContasPagarReceber\\Src\\ContasPagarReceber.WindowsForm\\obj\\",
+      "projectPath": "C:\\Users\\w0nd3\\Source\\Repos\\poo-contas-a-pagar-receber\\ContasPagarReceber\\Src\\ContasPagarReceber.WindowsForm\\ContasPagarReceber.WindowsForm.csproj",
+      "packagesPath": "C:\\Users\\w0nd3\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\w0nd3\\Source\\Repos\\poo-contas-a-pagar-receber\\ContasPagarReceber\\Src\\ContasPagarReceber.WindowsForm\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Gustavo Caldeira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\w0nd3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +68,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
