@@ -85,7 +85,7 @@ namespace ContasPagarReceber.WindowsForm
             this.Controls.Add(this.searchText);
             this.Controls.Add(this.gridTransacoes);
             this.Name = "FormContas";
-            this.Text = "Form1";
+            this.Text = "Contas a Pagar e Receber";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).EndInit();
             this.ResumeLayout(false);
