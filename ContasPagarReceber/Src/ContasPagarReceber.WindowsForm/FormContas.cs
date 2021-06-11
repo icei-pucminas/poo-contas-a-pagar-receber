@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ContasPagarReceber.WindowsForm
@@ -13,6 +20,21 @@ namespace ContasPagarReceber.WindowsForm
             this.repositorio = repositorio;
             InitializeComponent();
         }
+
+        private void atualizarBalanco()
+        {
+            decimal balanco = repositorio.ObterBalanco();
+            labelBalancoTotal.Text = "R$ " + balanco;
+            if (balanco < 0)
+            {
+                labelBalancoTotal.ForeColor = Color.FromArgb(255, 0, 0);
+            }
+            else
+            {
+                labelBalancoTotal.ForeColor = Color.FromArgb(0, 255, 26);
+            }
+        }
+
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -61,6 +83,21 @@ namespace ContasPagarReceber.WindowsForm
             });
 
             gridTransacoes.Refresh();
+        }
+
+	private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelBalancoTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBalanco_Click(object sender, EventArgs e)
+        {
+            atualizarBalanco();
         }
     }
 }
