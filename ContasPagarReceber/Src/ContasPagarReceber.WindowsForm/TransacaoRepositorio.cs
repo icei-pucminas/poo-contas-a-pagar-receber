@@ -46,5 +46,16 @@ namespace ContasPagarReceber.WindowsForm
         {
             return this.TranscaoList;
         }
+        public decimal ObterBalanco()
+        {
+            decimal despesas = 0;
+            decimal receitas = 0;
+
+            this.TranscaoList.ForEach((transacao) =>
+            {
+                _ = transacao.Tipo == TipoTransacao.DESPESA ? despesas += transacao.Valor : receitas += transacao.Valor;
+            });
+            return receitas - despesas;
+        }
     }
 }
