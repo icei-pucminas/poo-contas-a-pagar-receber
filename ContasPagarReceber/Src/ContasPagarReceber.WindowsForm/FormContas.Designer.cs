@@ -33,6 +33,7 @@ namespace ContasPagarReceber.WindowsForm
             this.searchText = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchLabel = new System.Windows.Forms.Label();
+            this.btnAdicionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,18 +76,29 @@ namespace ContasPagarReceber.WindowsForm
             this.searchLabel.Text = "Buscar Transação por Identificador";
             this.searchLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
+            // btnAdicionar
+            // 
+            this.btnAdicionar.Location = new System.Drawing.Point(717, 12);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.btnAdicionar.TabIndex = 4;
+            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
             // FormContas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 662);
+            this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchText);
             this.Controls.Add(this.gridTransacoes);
             this.Name = "FormContas";
             this.Text = "Contas a Pagar e Receber";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FormContas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -99,6 +111,7 @@ namespace ContasPagarReceber.WindowsForm
         private System.Windows.Forms.TextBox searchText;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label searchLabel;
+        private System.Windows.Forms.Button btnAdicionar;
     }
 }
 
