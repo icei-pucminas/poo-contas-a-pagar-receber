@@ -16,5 +16,7 @@ namespace ContasPagarReceber.WindowsForm
         void Atualizar(TEntity entidade);
 
         List<TEntity> Buscar(string texto);
+
+        Decimal ObterBalanco();
     }
 }

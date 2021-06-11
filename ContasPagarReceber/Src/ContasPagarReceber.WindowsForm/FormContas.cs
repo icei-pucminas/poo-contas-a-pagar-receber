@@ -20,6 +20,19 @@ namespace ContasPagarReceber.WindowsForm
             InitializeComponent();
         }
 
+        private void atualizarBalanco()
+        {
+            decimal balanco = repositorio.ObterBalanco();
+            labelBalancoTotal.Text = "R$ " + balanco;
+            if (balanco < 0)
+            {
+                labelBalancoTotal.ForeColor = Color.FromArgb(255, 0, 0);
+            }
+            else
+            {
+                labelBalancoTotal.ForeColor = Color.FromArgb(0, 255, 26);
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             gridTransacoes.DataSource = repositorio.BuscarTodos();
@@ -53,6 +66,21 @@ namespace ContasPagarReceber.WindowsForm
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelBalancoTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBalanco_Click(object sender, EventArgs e)
+        {
+            atualizarBalanco();
         }
     }
 }

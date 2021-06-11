@@ -33,6 +33,9 @@ namespace ContasPagarReceber.WindowsForm
             this.searchText = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchLabel = new System.Windows.Forms.Label();
+            this.labelBalanco = new System.Windows.Forms.Label();
+            this.labelBalancoTotal = new System.Windows.Forms.Label();
+            this.buttonBalanco = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +78,46 @@ namespace ContasPagarReceber.WindowsForm
             this.searchLabel.Text = "Buscar Transação por Identificador";
             this.searchLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
+            // labelBalanco
+            // 
+            this.labelBalanco.AutoSize = true;
+            this.labelBalanco.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelBalanco.Location = new System.Drawing.Point(552, 9);
+            this.labelBalanco.Name = "labelBalanco";
+            this.labelBalanco.Size = new System.Drawing.Size(96, 30);
+            this.labelBalanco.TabIndex = 4;
+            this.labelBalanco.Text = "Balanço:";
+            this.labelBalanco.Click += new System.EventHandler(this.label1_Click_2);
+            // 
+            // labelBalancoTotal
+            // 
+            this.labelBalancoTotal.AutoSize = true;
+            this.labelBalancoTotal.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.labelBalancoTotal.Location = new System.Drawing.Point(648, 7);
+            this.labelBalancoTotal.Name = "labelBalancoTotal";
+            this.labelBalancoTotal.Size = new System.Drawing.Size(61, 32);
+            this.labelBalancoTotal.TabIndex = 5;
+            this.labelBalancoTotal.Text = "R$ 0";
+            this.labelBalancoTotal.Click += new System.EventHandler(this.labelBalancoTotal_Click);
+            // 
+            // buttonBalanco
+            // 
+            this.buttonBalanco.Location = new System.Drawing.Point(552, 42);
+            this.buttonBalanco.Name = "buttonBalanco";
+            this.buttonBalanco.Size = new System.Drawing.Size(107, 24);
+            this.buttonBalanco.TabIndex = 6;
+            this.buttonBalanco.Text = "Atualizar Balanço";
+            this.buttonBalanco.UseVisualStyleBackColor = true;
+            this.buttonBalanco.Click += new System.EventHandler(this.buttonBalanco_Click);
+            // 
             // FormContas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 662);
+            this.Controls.Add(this.buttonBalanco);
+            this.Controls.Add(this.labelBalancoTotal);
+            this.Controls.Add(this.labelBalanco);
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchText);
@@ -90,6 +128,7 @@ namespace ContasPagarReceber.WindowsForm
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.atualizarBalanco();
 
         }
 
@@ -99,6 +138,9 @@ namespace ContasPagarReceber.WindowsForm
         private System.Windows.Forms.TextBox searchText;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label searchLabel;
+        private System.Windows.Forms.Label labelBalanco;
+        private System.Windows.Forms.Label labelBalancoTotal;
+        private System.Windows.Forms.Button buttonBalanco;
     }
 }
 
