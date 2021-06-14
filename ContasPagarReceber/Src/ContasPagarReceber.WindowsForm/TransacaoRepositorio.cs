@@ -1,44 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Linq;
+using System.Xml.Serialization;
 
 namespace ContasPagarReceber.WindowsForm
 {
     class TransacaoRepositorio : IRepositorio<Transacao>
     {
+        private readonly XmlSerializer XmlSerializer = new(typeof(List<Transacao>));
+        private readonly string ArquivoTransacao = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Transacoes.xml");
         private readonly List<Transacao> TranscaoList = new();
 
         public TransacaoRepositorio()
         {
-            this.TranscaoList.Add(new Transacao
+            if (File.Exists(ArquivoTransacao))
             {
-                DataVencimento = DateTime.Now.AddDays(1),
-                Descricao = "Pagamento teste",
-                Identificador = Guid.NewGuid(),
-                Tipo = TipoTransacao.DESPESA,
-                Valor = 150
-            });
-            this.TranscaoList.Add(new Transacao
-            {
-                DataVencimento = DateTime.Now.AddDays(2),
-                Descricao = "Salário",
-                Identificador = Guid.NewGuid(),
-                Tipo = TipoTransacao.RECEITA,
-                Valor = 300
-            });
+                TextReader Reader = new StreamReader(ArquivoTransacao);
+                TranscaoList = (List<Transacao>)XmlSerializer.Deserialize(Reader);
+                Reader.Close();
+                Reader.Dispose();
+            }
+        }
+
+        private void Salvar()
+        {
+            File.Delete(ArquivoTransacao);
+            TextWriter Writer = new StreamWriter(ArquivoTransacao);
+            XmlSerializer.Serialize(Writer, TranscaoList);
+            Writer.Flush();
+            Writer.Close();
+            Writer.Dispose();
         }
 
         public Guid Adicionar(Transacao entidade)
         {
             Guid identificador = Guid.NewGuid();
             entidade.Identificador = identificador;
-            this.TranscaoList.Add(entidade);
+            TranscaoList.Add(entidade);
+
+            this.Salvar();
+
             return identificador;
         }
 
         public void Atualizar(Transacao entidade)
         {
-            throw new NotImplementedException();
+            this.TranscaoList[this.TranscaoList.IndexOf(entidade)] = entidade;
+            this.Salvar();
         }
 
         public List<Transacao> Buscar(string texto, string filtro)
@@ -57,12 +67,12 @@ namespace ContasPagarReceber.WindowsForm
 
         public Transacao BuscarPorId(Guid id)
         {
-            throw new NotImplementedException();
+            return TranscaoList.Where(t => t.Identificador.Equals(id)).FirstOrDefault();
         }
 
         public List<Transacao> BuscarTodos()
         {
-            return this.TranscaoList;
+            return TranscaoList;
         }
         public decimal ObterBalanco()
         {

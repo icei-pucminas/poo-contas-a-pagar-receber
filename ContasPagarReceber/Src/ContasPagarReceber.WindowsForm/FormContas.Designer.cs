@@ -33,6 +33,7 @@ namespace ContasPagarReceber.WindowsForm
             this.searchText = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchLabel = new System.Windows.Forms.Label();
+            this.btnAdicionar = new System.Windows.Forms.Button();
             this.labelBalanco = new System.Windows.Forms.Label();
             this.labelBalancoTotal = new System.Windows.Forms.Label();
             this.buttonBalanco = new System.Windows.Forms.Button();
@@ -78,8 +79,15 @@ namespace ContasPagarReceber.WindowsForm
             this.searchLabel.Text = "Buscar Transação";
             this.searchLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // labelBalanco
+            // btnAdicionar
             // 
+            this.btnAdicionar.Location = new System.Drawing.Point(717, 12);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.btnAdicionar.TabIndex = 4;
+            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             this.labelBalanco.AutoSize = true;
             this.labelBalanco.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelBalanco.Location = new System.Drawing.Point(552, 9);
@@ -123,7 +131,8 @@ namespace ContasPagarReceber.WindowsForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 662);
-            this.Controls.Add(this.comboFiltros);
+            this.Controls.Add(this.btnAdicionar);
+           this.Controls.Add(this.comboFiltros);
             this.Controls.Add(this.buttonBalanco);
             this.Controls.Add(this.labelBalancoTotal);
             this.Controls.Add(this.labelBalanco);
@@ -133,7 +142,7 @@ namespace ContasPagarReceber.WindowsForm
             this.Controls.Add(this.gridTransacoes);
             this.Name = "FormContas";
             this.Text = "Contas a Pagar e Receber";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FormContas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,7 +158,8 @@ namespace ContasPagarReceber.WindowsForm
         private System.Windows.Forms.Label labelBalanco;
         private System.Windows.Forms.Label labelBalancoTotal;
         private System.Windows.Forms.Button buttonBalanco;
-        private System.Windows.Forms.ComboBox comboFiltros;
+        private System.Windows.Forms.Button btnAdicionar;
+      private System.Windows.Forms.ComboBox comboFiltros;
     }
 }
 
