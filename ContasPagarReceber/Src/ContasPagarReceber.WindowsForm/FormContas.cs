@@ -1,4 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -29,7 +38,6 @@ namespace ContasPagarReceber.WindowsForm
             }
         }
 
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -52,7 +60,9 @@ namespace ContasPagarReceber.WindowsForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            string filtro = comboFiltros.SelectedItem.ToString();
+            string textoBusca = searchText.Text;
+            gridTransacoes.DataSource = repositorio.Buscar(textoBusca, filtro);
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -63,8 +73,20 @@ namespace ContasPagarReceber.WindowsForm
         private void FormContas_Load(object sender, EventArgs e)
         {
             gridTransacoes.DataSource = repositorio.BuscarTodos();
+            criaFiltros();
+            atualizarBalanco();
         }
-
+        private void criaFiltros()
+        {
+            // Itera por cada propriedade da classe Transação e o insere na listagem de filtros 
+            PropertyInfo[] propriedades = typeof(Transacao).GetProperties();
+            foreach(PropertyInfo propriedade in propriedades)
+            {
+                int indexFiltro = comboFiltros.Items.Count;
+                comboFiltros.Items.Insert(indexFiltro, propriedade.Name);
+            }
+            comboFiltros.SelectedIndex = 0;
+        }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             repositorio.Adicionar(new Transacao
