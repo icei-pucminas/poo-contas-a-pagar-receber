@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ContasPagarReceber.WindowsForm
@@ -13,10 +7,11 @@ namespace ContasPagarReceber.WindowsForm
 
     public partial class FormContas : Form
     {
-        public IRepositorio<Transacao> repositorio = new TransacaoRepositorio();
-
-        public FormContas()
+        public IRepositorio<Transacao> repositorio;
+        
+        public FormContas(IRepositorio<Transacao> repositorio)
         {
+            this.repositorio = repositorio;
             InitializeComponent();
         }
 
@@ -33,10 +28,7 @@ namespace ContasPagarReceber.WindowsForm
                 labelBalancoTotal.ForeColor = Color.FromArgb(0, 255, 26);
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            gridTransacoes.DataSource = repositorio.BuscarTodos();
-        }
+
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -68,7 +60,26 @@ namespace ContasPagarReceber.WindowsForm
 
         }
 
-        private void label1_Click_2(object sender, EventArgs e)
+        private void FormContas_Load(object sender, EventArgs e)
+        {
+            gridTransacoes.DataSource = repositorio.BuscarTodos();
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            repositorio.Adicionar(new Transacao
+            {
+                DataVencimento = DateTime.Now.AddDays(1),
+                Descricao = "Pagamento teste",
+                Identificador = Guid.NewGuid(),
+                Tipo = TipoTransacao.DESPESA,
+                Valor = 150
+            });
+
+            gridTransacoes.Refresh();
+        }
+
+	    private void label1_Click_2(object sender, EventArgs e)
         {
 
         }
