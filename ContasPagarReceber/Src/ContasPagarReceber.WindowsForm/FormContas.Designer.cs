@@ -81,13 +81,16 @@ namespace ContasPagarReceber.WindowsForm
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(717, 12);
+            this.btnAdicionar.Location = new System.Drawing.Point(665, 42);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 4;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
+            // labelBalanco
+            // 
             this.labelBalanco.AutoSize = true;
             this.labelBalanco.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelBalanco.Location = new System.Drawing.Point(552, 9);
