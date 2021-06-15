@@ -13,7 +13,6 @@ using System.Windows.Forms;
 
 namespace ContasPagarReceber.WindowsForm
 {
-
     public partial class FormContas : Form
     {
         public IRepositorio<Transacao> repositorio;
