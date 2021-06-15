@@ -38,6 +38,7 @@ namespace ContasPagarReceber.WindowsForm
             this.labelBalanco = new System.Windows.Forms.Label();
             this.labelBalancoTotal = new System.Windows.Forms.Label();
             this.buttonBalanco = new System.Windows.Forms.Button();
+            this.comboFiltros = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,16 +66,16 @@ namespace ContasPagarReceber.WindowsForm
             // 
             // searchText
             // 
-            this.searchText.Location = new System.Drawing.Point(12, 87);
+            this.searchText.Location = new System.Drawing.Point(140, 87);
             this.searchText.Name = "searchText";
-            this.searchText.Size = new System.Drawing.Size(338, 23);
+            this.searchText.Size = new System.Drawing.Size(235, 23);
             this.searchText.TabIndex = 1;
             this.searchText.Text = "s";
             this.searchText.TextChanged += new System.EventHandler(this.searchText_TextChanged);
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(356, 87);
+            this.searchButton.Location = new System.Drawing.Point(381, 86);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(81, 24);
             this.searchButton.TabIndex = 2;
@@ -87,9 +88,9 @@ namespace ContasPagarReceber.WindowsForm
             this.searchLabel.AutoSize = true;
             this.searchLabel.Location = new System.Drawing.Point(12, 69);
             this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(188, 15);
+            this.searchLabel.Size = new System.Drawing.Size(97, 15);
             this.searchLabel.TabIndex = 3;
-            this.searchLabel.Text = "Buscar Transação por Identificador";
+            this.searchLabel.Text = "Buscar Transação";
             this.searchLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // btnAdicionar
@@ -134,12 +135,21 @@ namespace ContasPagarReceber.WindowsForm
             this.buttonBalanco.UseVisualStyleBackColor = true;
             this.buttonBalanco.Click += new System.EventHandler(this.buttonBalanco_Click);
             // 
+            // comboFiltros
+            // 
+            this.comboFiltros.FormattingEnabled = true;
+            this.comboFiltros.Location = new System.Drawing.Point(13, 87);
+            this.comboFiltros.Name = "comboFiltros";
+            this.comboFiltros.Size = new System.Drawing.Size(121, 23);
+            this.comboFiltros.TabIndex = 7;
+            // 
             // FormContas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 662);
             this.Controls.Add(this.btnAdicionar);
+           this.Controls.Add(this.comboFiltros);
             this.Controls.Add(this.buttonBalanco);
             this.Controls.Add(this.labelBalancoTotal);
             this.Controls.Add(this.labelBalanco);
@@ -167,6 +177,7 @@ namespace ContasPagarReceber.WindowsForm
         private System.Windows.Forms.Button buttonBalanco;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.DataGridViewLinkColumn ConfirmarPagamento;
+      	private System.Windows.Forms.ComboBox comboFiltros;
     }
 }
 

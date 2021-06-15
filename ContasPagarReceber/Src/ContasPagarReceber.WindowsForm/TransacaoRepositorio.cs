@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
@@ -50,9 +51,18 @@ namespace ContasPagarReceber.WindowsForm
             this.Salvar();
         }
 
-        public List<Transacao> Buscar(string texto)
+        public List<Transacao> Buscar(string texto, string filtro)
         {
-            return TranscaoList.Where(t => t.Descricao.Contains(texto)).ToList();
+            if (texto == "") return this.BuscarTodos();
+            
+            return this.TranscaoList.FindAll((transacao) =>
+            {
+                // Busca o valor a partir da propriedade passada eg. objeto[filtro]
+                System.Reflection.PropertyInfo prop = typeof(Transacao).GetProperty(filtro);
+                string valorProp = prop.GetValue(transacao).ToString();
+
+                return texto == valorProp.ToLower();
+            });
         }
 
         public Transacao BuscarPorId(Guid id)
