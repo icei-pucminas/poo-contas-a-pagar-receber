@@ -92,5 +92,26 @@ namespace ContasPagarReceber.WindowsForm
         {
             atualizarBalanco();
         }
+
+        private void gridTransacoes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                Transacao transacao = repositorio.BuscarTodos()[e.RowIndex];
+                FormConfirmacao formConfirmacao = new(transacao.Identificador);
+                formConfirmacao.DataSelecionada += FormConfirmacao_DataSelecionada1;
+                formConfirmacao.ShowDialog();
+            }
+        }
+
+        private void FormConfirmacao_DataSelecionada1(object sender, FormConfirmacao.DataSelecionadaArgs e)
+        {
+            Transacao transacao = repositorio.BuscarPorId(e.TransacaoId);
+            transacao.DataPagamento = e.DataPagamento;
+            repositorio.Atualizar(transacao);
+
+            gridTransacoes.Refresh();
+        }
+
     }
 }
