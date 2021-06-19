@@ -36,6 +36,14 @@ namespace ContasPagarReceber.WindowsForm
                 labelBalancoTotal.ForeColor = Color.FromArgb(0, 255, 26);
             }
         }
+        private void atualizaGrid()
+        {
+            gridTransacoes.DataSource = null;
+            gridTransacoes.DataSource = repositorio.BuscarTodos();
+            this.atualizarBalanco();
+            gridTransacoes.Update();
+            gridTransacoes.Refresh();
+        }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -90,9 +98,7 @@ namespace ContasPagarReceber.WindowsForm
         {
             FormNovaConta formNova = new FormNovaConta(this.repositorio);
             formNova.ShowDialog();
-
-            gridTransacoes.Update();
-            gridTransacoes.Refresh();
+            atualizaGrid();
         }
 
 	    private void label1_Click_2(object sender, EventArgs e)
