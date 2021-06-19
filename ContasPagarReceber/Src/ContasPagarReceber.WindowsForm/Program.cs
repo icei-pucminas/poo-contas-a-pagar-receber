@@ -17,7 +17,7 @@ namespace ContasPagarReceber.WindowsForm
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormContas());
+            Application.Run(new FormContas(new TransacaoRepositorio()));
         }
     }
 }
