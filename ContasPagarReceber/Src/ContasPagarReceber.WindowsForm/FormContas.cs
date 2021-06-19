@@ -88,15 +88,10 @@ namespace ContasPagarReceber.WindowsForm
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            repositorio.Adicionar(new Transacao
-            {
-                DataVencimento = DateTime.Now.AddDays(1),
-                Descricao = "Pagamento teste",
-                Identificador = Guid.NewGuid(),
-                Tipo = TipoTransacao.DESPESA,
-                Valor = 150
-            });
+            FormNovaConta formNova = new FormNovaConta(this.repositorio);
+            formNova.ShowDialog();
 
+            gridTransacoes.Update();
             gridTransacoes.Refresh();
         }
 

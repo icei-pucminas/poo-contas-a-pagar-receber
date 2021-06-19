@@ -19,7 +19,7 @@ namespace ContasPagarReceber.WindowsForm
 
 public enum TipoTransacao
 {
-    RECEITA,
-    DESPESA
+    RECEITA = 0,
+    DESPESA = 1
 }
 }
