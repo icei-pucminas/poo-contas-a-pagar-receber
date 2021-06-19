@@ -135,7 +135,7 @@ namespace ContasPagarReceber.WindowsForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 662);
             this.Controls.Add(this.btnAdicionar);
-           this.Controls.Add(this.comboFiltros);
+            this.Controls.Add(this.comboFiltros);
             this.Controls.Add(this.buttonBalanco);
             this.Controls.Add(this.labelBalancoTotal);
             this.Controls.Add(this.labelBalanco);
@@ -144,6 +144,7 @@ namespace ContasPagarReceber.WindowsForm
             this.Controls.Add(this.searchText);
             this.Controls.Add(this.gridTransacoes);
             this.Name = "FormContas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contas a Pagar e Receber";
             this.Load += new System.EventHandler(this.FormContas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).EndInit();
