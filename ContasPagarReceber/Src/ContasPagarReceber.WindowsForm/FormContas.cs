@@ -115,5 +115,19 @@ namespace ContasPagarReceber.WindowsForm
         {
             atualizarBalanco();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string ID = gridTransacoes.SelectedCells[0].Value.ToString();
+
+            var confirmResult = MessageBox.Show("Tem certeza que deseja apagar este item?",
+                                     "Confirmação!!",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                this.repositorio.Apagar(ID);
+                atualizaGrid();
+            }
+        }
     }
 }

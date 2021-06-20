@@ -45,6 +45,13 @@ namespace ContasPagarReceber.WindowsForm
             return identificador;
         }
 
+        public void Apagar(string y)
+        {
+            this.TranscaoList.Remove(this.TranscaoList.Find(x => x.Identificador.ToString().Contains(y)));
+
+            this.Salvar();
+        }
+
         public void Atualizar(Transacao entidade)
         {
             this.TranscaoList[this.TranscaoList.IndexOf(entidade)] = entidade;

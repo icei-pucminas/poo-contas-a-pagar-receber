@@ -38,6 +38,7 @@ namespace ContasPagarReceber.WindowsForm
             this.labelBalancoTotal = new System.Windows.Forms.Label();
             this.buttonBalanco = new System.Windows.Forms.Button();
             this.comboFiltros = new System.Windows.Forms.ComboBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,11 +130,22 @@ namespace ContasPagarReceber.WindowsForm
             this.comboFiltros.Size = new System.Drawing.Size(121, 23);
             this.comboFiltros.TabIndex = 7;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(521, 87);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Apagar";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FormContas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 662);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.comboFiltros);
             this.Controls.Add(this.buttonBalanco);
@@ -164,6 +176,7 @@ namespace ContasPagarReceber.WindowsForm
         private System.Windows.Forms.Button buttonBalanco;
         private System.Windows.Forms.Button btnAdicionar;
       private System.Windows.Forms.ComboBox comboFiltros;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
