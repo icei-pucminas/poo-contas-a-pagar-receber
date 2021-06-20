@@ -30,6 +30,7 @@ namespace ContasPagarReceber.WindowsForm
         private void InitializeComponent()
         {
             this.gridTransacoes = new System.Windows.Forms.DataGridView();
+            this.ConfirmarPagamento = new System.Windows.Forms.DataGridViewLinkColumn();
             this.searchText = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchLabel = new System.Windows.Forms.Label();
@@ -45,12 +46,24 @@ namespace ContasPagarReceber.WindowsForm
             // gridTransacoes
             // 
             this.gridTransacoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridTransacoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ConfirmarPagamento});
             this.gridTransacoes.Location = new System.Drawing.Point(12, 116);
             this.gridTransacoes.Name = "gridTransacoes";
             this.gridTransacoes.RowTemplate.Height = 25;
             this.gridTransacoes.Size = new System.Drawing.Size(780, 534);
             this.gridTransacoes.TabIndex = 0;
+            this.gridTransacoes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTransacoes_CellClick);
             this.gridTransacoes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ConfirmarPagamento
+            // 
+            this.ConfirmarPagamento.HeaderText = "Confirmar";
+            this.ConfirmarPagamento.Name = "ConfirmarPagamento";
+            this.ConfirmarPagamento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ConfirmarPagamento.Text = "Pago";
+            this.ConfirmarPagamento.ToolTipText = "Confirmar pagamento";
+            this.ConfirmarPagamento.UseColumnTextForLinkValue = true;
             // 
             // searchText
             // 
@@ -58,6 +71,7 @@ namespace ContasPagarReceber.WindowsForm
             this.searchText.Name = "searchText";
             this.searchText.Size = new System.Drawing.Size(235, 23);
             this.searchText.TabIndex = 1;
+            this.searchText.Text = "s";
             this.searchText.TextChanged += new System.EventHandler(this.searchText_TextChanged);
             // 
             // searchButton
@@ -175,7 +189,8 @@ namespace ContasPagarReceber.WindowsForm
         private System.Windows.Forms.Label labelBalancoTotal;
         private System.Windows.Forms.Button buttonBalanco;
         private System.Windows.Forms.Button btnAdicionar;
-      private System.Windows.Forms.ComboBox comboFiltros;
+        private System.Windows.Forms.ComboBox comboFiltros;
+        private System.Windows.Forms.DataGridViewLinkColumn ConfirmarPagamento;
         private System.Windows.Forms.Button btnDelete;
     }
 }
