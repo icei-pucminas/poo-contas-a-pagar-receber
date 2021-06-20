@@ -36,6 +36,14 @@ namespace ContasPagarReceber.WindowsForm
                 labelBalancoTotal.ForeColor = Color.FromArgb(0, 255, 26);
             }
         }
+        private void atualizaGrid()
+        {
+            gridTransacoes.DataSource = null;
+            gridTransacoes.DataSource = repositorio.BuscarTodos();
+            this.atualizarBalanco();
+            gridTransacoes.Update();
+            gridTransacoes.Refresh();
+        }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -88,16 +96,9 @@ namespace ContasPagarReceber.WindowsForm
         }
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            repositorio.Adicionar(new Transacao
-            {
-                DataVencimento = DateTime.Now.AddDays(1),
-                Descricao = "Pagamento teste",
-                Identificador = Guid.NewGuid(),
-                Tipo = TipoTransacao.DESPESA,
-                Valor = 150
-            });
-
-            gridTransacoes.Refresh();
+            FormNovaConta formNova = new FormNovaConta(this.repositorio);
+            formNova.ShowDialog();
+            atualizaGrid();
         }
 
 	    private void label1_Click_2(object sender, EventArgs e)
@@ -114,7 +115,6 @@ namespace ContasPagarReceber.WindowsForm
         {
             atualizarBalanco();
         }
-
         private void gridTransacoes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
@@ -132,8 +132,20 @@ namespace ContasPagarReceber.WindowsForm
             transacao.DataPagamento = e.DataPagamento;
             repositorio.Atualizar(transacao);
 
-            gridTransacoes.Refresh();
+            atualizaGrid();
         }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string ID = gridTransacoes.SelectedCells[0].Value.ToString();
 
+            var confirmResult = MessageBox.Show("Tem certeza que deseja apagar este item?",
+                                     "Confirmação!!",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                this.repositorio.Apagar(ID);
+                atualizaGrid();
+            }
+        }
     }
 }
