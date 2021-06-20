@@ -146,11 +146,11 @@ namespace ContasPagarReceber.WindowsForm
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(521, 87);
+            this.btnDelete.Location = new System.Drawing.Point(552, 86);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(188, 23);
             this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Apagar";
+            this.btnDelete.Text = "Apagar linha selecionada";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
