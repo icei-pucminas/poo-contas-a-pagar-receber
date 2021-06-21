@@ -8,8 +8,7 @@ namespace ContasPagarReceber.WindowsForm
     public partial class FormContas : Form
     {
         public IRepositorio<Transacao> repositorio;
-        public event System.Windows.Forms.DataGridViewCellEventHandler CellValueChanged;
-
+        
         public FormContas(IRepositorio<Transacao> repositorio)
         {
             this.repositorio = repositorio;
@@ -141,11 +140,6 @@ namespace ContasPagarReceber.WindowsForm
                 this.repositorio.Apagar(ID);
                 atualizaGrid();
             }
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click_2(object sender, EventArgs e)

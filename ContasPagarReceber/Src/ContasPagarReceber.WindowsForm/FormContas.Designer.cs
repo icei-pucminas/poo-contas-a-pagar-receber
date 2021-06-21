@@ -57,7 +57,7 @@ namespace ContasPagarReceber.WindowsForm
             this.gridTransacoes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTransacoes_CellClick);
             this.gridTransacoes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.gridTransacoes.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTransacoes_CellValueChanged);
-            this.gridTransacoes.CurrentCellChanged += new System.EventHandler(this.gridTransacoes_CurrentCellChanged);
+            
             // 
             // ConfirmarPagamento
             // 
