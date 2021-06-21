@@ -145,6 +145,7 @@ namespace ContasPagarReceber.WindowsForm
         private void button1_Click_2(object sender, EventArgs e)
         {
             repositorio.Salvar();
+            MessageBox.Show("Suas alterações foram salvas com sucesso.","Confirmação");
         }      
 
         private void gridTransacoes_CellValueChanged(object sender, DataGridViewCellEventArgs e)
