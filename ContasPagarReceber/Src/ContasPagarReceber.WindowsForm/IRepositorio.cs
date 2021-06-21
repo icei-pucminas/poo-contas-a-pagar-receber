@@ -12,5 +12,6 @@ namespace ContasPagarReceber.WindowsForm
         void Apagar(string x);
         List<TEntity> Buscar(string texto, string filtro);
         Decimal ObterBalanco();
+        void Salvar();
     }
 }

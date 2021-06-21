@@ -36,5 +36,10 @@ namespace ContasPagarReceber.WindowsForm
         {
             OnDataSelecionada(dtpPagamento.Value);
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

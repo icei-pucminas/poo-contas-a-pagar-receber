@@ -40,6 +40,7 @@ namespace ContasPagarReceber.WindowsForm
             this.buttonBalanco = new System.Windows.Forms.Button();
             this.comboFiltros = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,10 +52,12 @@ namespace ContasPagarReceber.WindowsForm
             this.gridTransacoes.Location = new System.Drawing.Point(12, 116);
             this.gridTransacoes.Name = "gridTransacoes";
             this.gridTransacoes.RowTemplate.Height = 25;
-            this.gridTransacoes.Size = new System.Drawing.Size(780, 534);
+            this.gridTransacoes.Size = new System.Drawing.Size(780, 507);
             this.gridTransacoes.TabIndex = 0;
             this.gridTransacoes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTransacoes_CellClick);
             this.gridTransacoes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.gridTransacoes.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridTransacoes_CellValueChanged);
+            
             // 
             // ConfirmarPagamento
             // 
@@ -154,11 +157,22 @@ namespace ContasPagarReceber.WindowsForm
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(717, 629);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Salvar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
             // FormContas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 662);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.comboFiltros);
@@ -171,7 +185,7 @@ namespace ContasPagarReceber.WindowsForm
             this.Controls.Add(this.gridTransacoes);
             this.Name = "FormContas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Contas a Pagar e Receber";
+            this.Text = "Salvar";
             this.Load += new System.EventHandler(this.FormContas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacoes)).EndInit();
             this.ResumeLayout(false);
@@ -192,6 +206,7 @@ namespace ContasPagarReceber.WindowsForm
         private System.Windows.Forms.ComboBox comboFiltros;
         private System.Windows.Forms.DataGridViewLinkColumn ConfirmarPagamento;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button button1;
     }
 }
 

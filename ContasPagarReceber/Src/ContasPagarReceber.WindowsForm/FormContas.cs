@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace ContasPagarReceber.WindowsForm
@@ -36,6 +28,8 @@ namespace ContasPagarReceber.WindowsForm
                 labelBalancoTotal.ForeColor = Color.FromArgb(0, 255, 26);
             }
         }
+
+        
         private void atualizaGrid()
         {
             gridTransacoes.DataSource = null;
@@ -51,11 +45,6 @@ namespace ContasPagarReceber.WindowsForm
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -136,7 +125,9 @@ namespace ContasPagarReceber.WindowsForm
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string ID = gridTransacoes.SelectedCells[0].Value.ToString();
+            int selectedrowindex = gridTransacoes.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = gridTransacoes.Rows[selectedrowindex];
+            string ID = Convert.ToString(selectedRow.Cells[1].Value);
 
             var confirmResult = MessageBox.Show("Tem certeza que deseja apagar este item?",
                                      "Confirmação!!",
@@ -146,6 +137,16 @@ namespace ContasPagarReceber.WindowsForm
                 this.repositorio.Apagar(ID);
                 atualizaGrid();
             }
+        }
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            repositorio.Salvar();
+            MessageBox.Show("Suas alterações foram salvas com sucesso.", "Confirmação");
+        }
+
+        private void gridTransacoes_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            repositorio.Salvar();
         }
     }
 }
