@@ -49,11 +49,6 @@ namespace ContasPagarReceber.WindowsForm
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void searchText_TextChanged(object sender, EventArgs e)
         {
 
@@ -130,7 +125,9 @@ namespace ContasPagarReceber.WindowsForm
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string ID = gridTransacoes.SelectedCells[0].Value.ToString();
+            int selectedrowindex = gridTransacoes.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = gridTransacoes.Rows[selectedrowindex];
+            string ID = Convert.ToString(selectedRow.Cells[1].Value);
 
             var confirmResult = MessageBox.Show("Tem certeza que deseja apagar este item?",
                                      "Confirmação!!",
@@ -141,12 +138,11 @@ namespace ContasPagarReceber.WindowsForm
                 atualizaGrid();
             }
         }
-
-        private void button1_Click_2(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             repositorio.Salvar();
-            MessageBox.Show("Suas alterações foram salvas com sucesso.","Confirmação");
-        }      
+            MessageBox.Show("Suas alterações foram salvas com sucesso.", "Confirmação");
+        }
 
         private void gridTransacoes_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
