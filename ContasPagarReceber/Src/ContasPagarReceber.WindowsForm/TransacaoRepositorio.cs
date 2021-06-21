@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
-using System.Linq;
 using System.Xml.Serialization;
 
 namespace ContasPagarReceber.WindowsForm
@@ -24,7 +23,7 @@ namespace ContasPagarReceber.WindowsForm
             }
         }
 
-        private void Salvar()
+        public void Salvar()
         {
             File.Delete(ArquivoTransacao);
             TextWriter Writer = new StreamWriter(ArquivoTransacao);

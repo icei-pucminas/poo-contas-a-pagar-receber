@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace ContasPagarReceber.WindowsForm
@@ -16,7 +8,8 @@ namespace ContasPagarReceber.WindowsForm
     public partial class FormContas : Form
     {
         public IRepositorio<Transacao> repositorio;
-        
+        public event System.Windows.Forms.DataGridViewCellEventHandler CellValueChanged;
+
         public FormContas(IRepositorio<Transacao> repositorio)
         {
             this.repositorio = repositorio;
@@ -36,6 +29,8 @@ namespace ContasPagarReceber.WindowsForm
                 labelBalancoTotal.ForeColor = Color.FromArgb(0, 255, 26);
             }
         }
+
+        
         private void atualizaGrid()
         {
             gridTransacoes.DataSource = null;
@@ -146,6 +141,21 @@ namespace ContasPagarReceber.WindowsForm
                 this.repositorio.Apagar(ID);
                 atualizaGrid();
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            repositorio.Salvar();
+        }      
+
+        private void gridTransacoes_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            repositorio.Salvar();
         }
     }
 }
